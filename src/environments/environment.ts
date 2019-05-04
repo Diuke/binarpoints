@@ -2,8 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+var baseURL = "http://192.168.1.115/binarpoints/public/api"
 export const environment = {
-  production: false
+  production: false, 
+  routes: {
+    login: baseURL + "/login",
+    lista: baseURL + "/lista",
+    motivos: baseURL + "/listMotive"
+  }
 };
 
 /*
