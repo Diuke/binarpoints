@@ -4,11 +4,12 @@
 
 var baseURL = "http://192.168.1.115/binarpoints/public/api"
 export const environment = {
-  production: false, 
+  production: false,
   routes: {
     login: baseURL + "/login",
     lista: baseURL + "/lista",
-    motivos: baseURL + "/listMotive"
+    motivos: baseURL + "/listMotive",
+    lista_trabajadores: baseURL + '/listWorkers'
   }
 };
 

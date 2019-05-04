@@ -8,13 +8,22 @@ import { ServicesService } from '../services/services.service';
 })
 export class ListComponent implements OnInit {
 
-  lista;
+  lista_trabajadores;
+  spinner;
   constructor(private service: ServicesService) { }
 
   ngOnInit() {
-    this.service.fetchList().subscribe(data => {
+    this.spinner = true;
+
+    this.service.listaTrabajadores().subscribe(data => {
       console.log(data);
-      this.lista = data;
+
+      this.lista_trabajadores = data;
+      this.spinner = false;
+
+    }, error => {
+      console.log(error);
+
     });
   }
 

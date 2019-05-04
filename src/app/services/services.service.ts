@@ -27,4 +27,9 @@ export class ServicesService {
     return this.http.get(environment.routes.motivos);
   }
 
+  listaTrabajadores() {
+    var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') });
+    return this.http.get(environment.routes.lista_trabajadores);
+  }
+
 }
