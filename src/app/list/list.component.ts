@@ -9,14 +9,13 @@ import { ServicesService } from '../services/services.service';
 export class ListComponent implements OnInit {
 
   lista;
-  constructor(private service: ServicesService) {  }
+  constructor(private service: ServicesService) { }
 
   ngOnInit() {
     this.service.fetchList().subscribe(data => {
       console.log(data);
       this.lista = data;
-      
-    })
+    });
   }
 
 }
