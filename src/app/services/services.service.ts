@@ -24,7 +24,7 @@ export class ServicesService {
 
   listaMotivos(){
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token')});
-    return this.http.get(environment.routes.motivos);
+    return this.http.get(environment.routes.motivos,  { headers: reqHeader });
   }
 
 }
