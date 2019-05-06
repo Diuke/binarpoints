@@ -1,3 +1,48 @@
-<p>
-  list works!
-</p>
+
+<div class="d-flex justify-content-center mt-5" *ngIf="spinner">
+  <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="table-responsive-sm" *ngIf="!spinner">
+  <table class="table table-hover text-center">
+    <thead>
+      <tr class="">
+        <th scope="col">Cargo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Puntos</th>
+        <th scope="col" *ngIf="isLogged">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trabajador of lista_trabajadores">
+        <!-- NOMBRE DEL CARGO -->
+        <th scope="row">{{ trabajador.job_title}}</th>
+        <!-- FIN NOMBRE DEL CARGO -->
+
+        <!-- NOMBRE DEL TRABAJADOR -->
+        <td><a [routerLink]="['historial/' + trabajador.id]">{{trabajador.name}}</a></td>
+        <!-- FIN NOMBRE DEL TRABAJADOR -->
+
+        <!-- BINARPUNTOS -->
+        <td>{{trabajador.binar_points}}</td>
+        <!-- FIN BINARPUNTOS -->
+        <td *ngIf="isLogged">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <a [routerLink]="['agregarBinarPoints/'+trabajador.id]" class="btn btn-dark btn-circle"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="col-12 col-md-4">
+              <a [routerLink]="['quitarBinarPoints/'+trabajador.id]" class="btn btn-dark btn-circle"><i class="fas fa-minus"></i></a>
+            </div>
+            <div class="col-12 col-md-4">
+              <a [routerLink]="['redimirBinarPoints/'+trabajador.id]" class="btn btn-dark btn-circle"><i class="far fa-money-bill-alt"></i></a>
+            </div>
+          </div>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

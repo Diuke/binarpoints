@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ServicesService } from '../services/services.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   password: FormControl;
   
 
-  constructor(private service: ServicesService, private router: Router) { }
+  constructor(private service: ServicesService, private router: Router, private location: Location) { }
 
 
 
@@ -26,9 +27,9 @@ export class LoginComponent implements OnInit {
   send(){
     this.service.login(this.email.value, this.password.value).subscribe(data => {
       console.log(data);
-      
       localStorage.setItem('token', data['access_token']);
-      this.router.navigate(['/']);
+      //this.router.navigate(['']);
+      window.location.assign('');
     });
   }
 

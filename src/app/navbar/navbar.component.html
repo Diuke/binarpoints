@@ -1,0 +1,24 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-between">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link pl-1" [routerLink]="['']">Lista <span class="sr-only">Lista</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link pl-3" *ngIf="isLogged" [routerLink]="['agregarMotivo']">Agregar motivos <span class="sr-only">Agregar motivos</span></a>
+        </li>
+      </ul>
+    </div>
+    <div class="navbar-collapse collapse dual-nav w-100 order-2">
+      <a [routerLink]="['']" class="navbar-brand mx-auto d-block text-center" *ngIf="isLogged">Angela Jimenez - Gerente</a>
+      <ul class="nav navbar-nav ml-auto">
+        <li *ngIf="isLogged" class="nav-item"><a class="nav-link" (click)="logout()" style="cursor: pointer"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+        <li *ngIf="!isLogged" class="nav-item"><a class="nav-link" [routerLink]="['login']" style="cursor: pointer"><i class="fas fa-sign-out-alt"></i> Iniciar Sesión</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

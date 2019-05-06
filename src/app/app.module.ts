@@ -12,6 +12,10 @@ import { AgregarComponent } from './agregar/agregar.component';
 import { QuitarComponent } from './quitar/quitar.component';
 import { RedimirComponent } from './redimir/redimir.component';
 import { MotivosComponent } from './motivos/motivos.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RedirectorComponent } from './redirector/redirector.component';
+import { HistorialComponent } from './historial/historial.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -20,8 +24,11 @@ import { MotivosComponent } from './motivos/motivos.component';
     ListComponent,
     AgregarComponent,
     QuitarComponent,
-    RedimirComponent,
-    MotivosComponent
+    RedimirComponent, 
+    MotivosComponent,
+    NavbarComponent,
+    RedirectorComponent,
+    HistorialComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +36,7 @@ import { MotivosComponent } from './motivos/motivos.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

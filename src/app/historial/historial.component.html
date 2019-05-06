@@ -1,0 +1,40 @@
+
+<div class="d-flex justify-content-center mt-5" *ngIf="spinner">
+    <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div class="container">
+    <h3 class="w-100 text-center p-4">Historial de puntos de {{infoTrabajador?.name}}</h3>
+  </div>
+  <div class="table-responsive-sm" *ngIf="!spinner">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr class="">
+          <th scope="col">Motivo</th>
+          <th scope="col">Puntos</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of listaHistorial | paginate: { id: 'listing_pagination',
+          itemsPerPage: 9,
+          currentPage: page,
+          totalItems: totalElements }">
+          <!-- NOMBRE DEL CARGO -->
+          <th scope="row">{{ item.motivo }}</th>
+          <!-- FIN NOMBRE DEL CARGO -->
+  
+          <!-- NOMBRE DEL TRABAJADOR -->
+          <td [ngClass]="{'plus': item.operation == 1, 'minus': item.operation == 0}">{{ (item.operation == 0 ? '-' : '+') +  item.binar_points}}</td>
+          <!-- FIN NOMBRE DEL TRABAJADOR -->
+  
+          <!-- BINARPUNTOS -->
+          <td>{{item.date | date}}</td>
+          <!-- FIN BINARPUNTOS -->
+        </tr>
+      </tbody>
+      <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="getPage($event)"></pagination-controls>
+    </table>
+  </div>
+  

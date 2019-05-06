@@ -1,11 +1,16 @@
-<div class="container-fluid" style="height: 30px">
-  nav
-</div>
+
 <div style="height: 50px"></div>
 
 <div class="container">
-  <h3>Lista de motivos</h3> <button class="btn btn-success" (click)="agregarMotivo()">Agregar Motivo</button>
-  <div class="row" *ngFor="let el of lista" class="p-2" style="border: 1px rgb(201, 201, 201) solid">
+  <h3>Lista de motivos</h3> <button class="btn btn-success mt-2" (click)="agregarMotivo()">Agregar Motivo</button>
+  <div class="alert alert-primary" *ngIf="error == 0" role="alert">
+    Motivo añadido o actualizado con exito.
+  </div>
+  <div class="alert alert-danger" *ngIf="error == 1" role="alert">
+    Error al agregar el motivo
+  </div>
+
+  <div class="row" *ngFor="let el of lista; let i = index" class="p-2 mb-2 mt-2" style="border: 1px rgb(201, 201, 201) solid">
     <div class="col-12">  
       <h3><small>Nombre:</small> <input class="form-control" [formControl]="nombreFormControls[el.id]"></h3>
     </div>
@@ -20,8 +25,7 @@
         </select>
       </h3>
     </div>
-    <button class="btn btn-primary">Actualizar</button>
-    <button class="btn btn-danger">Quitar</button>
+    <button class="btn btn-primary" (click)="updateCreate(i)">Actualizar</button>
   </div>
 
 

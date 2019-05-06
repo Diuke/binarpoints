@@ -6,6 +6,8 @@ import { MotivosComponent } from './motivos/motivos.component';
 import { AgregarComponent } from './agregar/agregar.component';
 import { QuitarComponent } from './quitar/quitar.component';
 import { RedimirComponent } from './redimir/redimir.component';
+import { RedirectorComponent } from './redirector/redirector.component';
+import { HistorialComponent } from './historial/historial.component';
 
 const routes: Routes = [
   {
@@ -21,16 +23,24 @@ const routes: Routes = [
     component: MotivosComponent
   },
   {
-    path: 'agregarBinarPoints',
+    path: 'agregarBinarPoints/:id',
     component: AgregarComponent
   },
   {
-    path: 'quitarBinarPoints',
+    path: 'quitarBinarPoints/:id',
     component: QuitarComponent
   },
   {
-    path: 'redimirBinarPoints',
+    path: 'redimirBinarPoints/:id',
     component: RedimirComponent
+  },
+  {
+    path: 'redirector',
+    component: RedirectorComponent
+  },
+  {
+    path: 'historial/:id',
+    component: HistorialComponent
   }
 ];
 
