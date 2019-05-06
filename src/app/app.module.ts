@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgregarComponent } from './agregar/agregar.component';
 import { QuitarComponent } from './quitar/quitar.component';
 import { RedimirComponent } from './redimir/redimir.component';
+import { MotivosComponent } from './motivos/motivos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RedimirComponent } from './redimir/redimir.component';
     ListComponent,
     AgregarComponent,
     QuitarComponent,
-    RedimirComponent
+    RedimirComponent,
+    MotivosComponent
   ],
   imports: [
     BrowserModule,

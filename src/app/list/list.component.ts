@@ -14,7 +14,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.service.fetchList().subscribe(data => {
       console.log(data);
-      this.lista = data;
+      this.lista = data['data'];
       
     })
   }
