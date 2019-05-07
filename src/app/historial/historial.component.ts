@@ -16,13 +16,15 @@ export class HistorialComponent implements OnInit {
   page;
   infoTrabajador
   totalElements;
+  spinner;
 
   ngOnInit() {
+    this.spinner = true;
     this.activeRoute.paramMap.subscribe(data => {
       console.log(data);
       this.page = 1
       this.trabajadorId = parseInt(data['params']['id']);
-      
+
       this.services.getTrabajador(this.trabajadorId).subscribe(data => {
         this.infoTrabajador = data;
         console.log(data);
@@ -43,6 +45,7 @@ export class HistorialComponent implements OnInit {
       console.log(data);
       this.totalElements = data['total'];
       this.listaHistorial = data['data'];
+      this.spinner = false;
     });
   }
 
