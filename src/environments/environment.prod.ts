@@ -1,4 +1,4 @@
-var baseURL = "http://192.168.1.4/binarpoints/public/api"
+var baseURL = "http://sistemas.binar10.co/binarpoints/public/api"
 
 export const environment = {
   production: true,
